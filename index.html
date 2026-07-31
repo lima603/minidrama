@@ -115,6 +115,35 @@
         const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/s1gpcuh93g4v5qqwhvg7w287c7om4uz";
 
         async function comprarProduto(event, nomeDrama, precoProduto) {
+    const userId = (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.user) ? window.Telegram.WebApp.initDataUnsafe.user.id : "teste_web";
+    
+    event.target.innerText = "Gerando Pix...";
+    event.target.disabled = true;
+
+    try {
+        const resposta = await fetch(MAKE_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                user_id: userId,
+                drama: nomeDrama,
+                valor: precoProduto
+            })
+        });
+
+        if (resposta.ok) {
+            alert('Pix gerado com sucesso!');
+        } else {
+            alert('Erro ao comunicar com o servidor.');
+        }
+    } catch (erro) {
+        console.error('Erro:', erro);
+        alert('Falha ao enviar dados.');
+    } finally {
+        event.target.innerText = "Assistir Agora";
+        event.target.disabled = false;
+    }
+}
             const userId = tg.initDataUnsafe?.user?.id || "teste_web";[cite: 1]
 
             event.target.innerText = "Gerando Pix...";
