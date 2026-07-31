@@ -3,146 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Minidramas</title>
+    <title>Mini App Telegram</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            background-color: #0f0f0f; 
-            color: #fff; 
-            margin: 0; 
-            padding: 12px; 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
         }
-        h1 { 
-            text-align: center; 
-            font-size: 18px; 
-            margin-bottom: 20px; 
-            color: #ff3b30; 
+        h1 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            text-align: center;
+        }
+        .drama-card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .drama-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .drama-title {
+            font-size: 18px;
             font-weight: bold;
+            margin: 10px 0 5px 0;
         }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 10px; 
-            max-width: 500px; 
-            margin: 0 auto; 
+        .drama-price {
+            color: #4cd137;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
-        .card { 
-            background-color: #1a1a1a; 
-            border-radius: 10px; 
-            overflow: hidden; 
-            border: 1px solid #333; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .btn-buy {
+            background-color: #2481cc;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
         }
-        .card img { 
-            width: 100%; 
-            height: 190px; 
-            object-fit: cover; 
+        .btn-buy:hover {
+            background-color: #1d69a8;
         }
-        .card-content { 
-            padding: 10px; 
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            justify-content: space-between;
-        }
-        .title { 
-            font-size: 13px; 
-            font-weight: bold; 
-            margin-bottom: 8px; 
-            line-height: 1.2;
-        }
-        .price { 
-            font-size: 14px; 
-            color: #4cd964; 
-            margin-bottom: 10px; 
-            font-weight: bold; 
-        }
-        .btn-buy { 
-            background-color: #ff3b30; 
-            color: white; 
-            border: none; 
-            padding: 10px; 
-            border-radius: 6px; 
-            width: 100%; 
-            font-weight: bold; 
-            cursor: pointer; 
-            font-size: 13px; 
-            text-transform: uppercase;
-        }
-        .btn-buy:active { 
-            opacity: 0.8; 
+        .btn-buy:disabled {
+            background-color: #555555;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
 
-    <h1>🎬 CATÁLOGO DE MINIDRAMAS</h1>
+    <h1>Escolha seu Minidrama</h1>
 
-    <div id="catalogo" class="grid">
-        <div class="card">
-            <img src="capa1.jpg" alt="A Herdeira que Bloqueou o Marido">
-            <div class="card-content">
-                <div>
-                    <div class="title">A Herdeira que Bloqueou o Marido</div>
-                    <div class="price">R$ 5</div>
-                </div>
-                <button class="btn-buy" onclick="comprarProduto(event,'A Herdeira que Bloqueou o Marido', 5.00)">Gerar PIX</button>
-            </div>
-        </div>
+    <!-- DRAMA 2 -->
+    <div class="drama-card">
+        <img src="capa2.jpg" alt="Capa Drama 2" class="drama-img">
+        <div class="drama-title">Princesa Renascida dos Três Cowboys</div>
+        <div class="drama-price">R$ 5,00</div>
+        <button class="btn-buy" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5.00)">Gerar PIX</button>
+    </div>
 
-        <div class="card">
-            <img src="capa2.jpg" alt="Princesa Renascida dos Três Cowboys">
-            <div class="card-content">
-                <div>
-                    <div class="title">Princesa Renascida dos Três Cowboys</div>
-                    <div class="price">R$ 5</div>
-                </div>
-                <button class="btn-buy" onclick="comprarProduto(event,'Princesa Renascida dos Três Cowboys', 5.00)">Gerar PIX</button>
-            </div>
-        </div>
+    <!-- DRAMA 1 -->
+    <div class="drama-card">
+        <img src="capa1.jpg" alt="Capa Drama 1" class="drama-img">
+        <div class="drama-title">A Herdeira que Bloqueou o Marido</div>
+        <div class="drama-price">R$ 5,00</div>
+        <button class="btn-buy" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5.00)">Gerar PIX</button>
     </div>
 
     <script>
-       const tg = window.Telegram.WebApp;
-if (tg) {
-    tg.ready();
-    tg.expand();
-}
-
-const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/slgpcuh93gv4v5qqwhvg7w287c7om4uz";
-
-async function comprarProduto(event, nomeDrama, precoProduto) {
-    const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) ? tg.initDataUnsafe.user.id : "teste_web";
-    
-    event.target.innerText = "Gerando Pix...";
-    event.target.disabled = true;
-
-    try {
-        const resposta = await fetch(MAKE_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                user_id: userId,
-                drama: nomeDrama,
-                valor: precoProduto
-            })
-        });
-
-        if (resposta.ok) {
-            alert('Pix gerado com sucesso!');
-        } else {
-            alert('Erro ao comunicar com o servidor.');
+        const tg = window.Telegram.WebApp;
+        if (tg) {
+            tg.ready();
+            tg.expand();
         }
-    } catch (erro) {
-        console.error('Erro:', erro);
-        alert('Falha ao enviar dados.');
-    } finally {
-        event.target.innerText = "Gerar PIX";
-        event.target.disabled = false;
-    }
-}
+
+        const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/ju7lnikxsisbl10wh0a2d8vvdx39y858";
+
+        async function comprarProduto(event, nomeDrama, precoProduto) {
+            const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) ? tg.initDataUnsafe.user.id : "teste_web";
+            
+            const botao = event.target;
+            botao.innerText = "Gerando Pix...";
+            botao.disabled = true;
+
+            try {
+                const resposta = await fetch(MAKE_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        user_id: userId,
+                        drama: nomeDrama,
+                        valor: precoProduto
+                    })
+                });
+
+                if (resposta.ok) {
+                    alert('Pix gerado com sucesso!');
+                } else {
+                    alert('Erro ao comunicar com o servidor.');
+                }
+            } catch (erro) {
+                console.error('Erro:', erro);
+                alert('Falha ao enviar dados.');
+            } finally {
+                botao.innerText = "Gerar PIX";
+                botao.disabled = false;
+            }
+        }
+    </script>
 </body>
 </html>
