@@ -89,7 +89,7 @@
                     <div class="title">A Herdeira que Bloqueou o Marido</div>
                     <div class="price">R$ 5</div>
                 </div>
-                <button class="btn-buy" onclick="comprarProduto('A Herdeira que Bloqueou o Marido', 5.00)">Gerar PIX</button>
+                <button class="btn-buy" onclick="comprarProduto(event'A Herdeira que Bloqueou o Marido', 5.00)">Gerar PIX</button>
             </div>
         </div>
 
@@ -100,7 +100,7 @@
                     <div class="title">Princesa Renascida dos Três Cowboys</div>
                     <div class="price">R$ 5</div>
                 </div>
-                <button class="btn-buy" onclick="comprarProduto('Princesa Renascida dos Três Cowboys', 5.00)">Gerar PIX</button>
+                <button class="btn-buy" onclick="comprarProduto(event'Princesa Renascida dos Três Cowboys', 5.00)">Gerar PIX</button>
             </div>
         </div>
     </div>
@@ -114,7 +114,7 @@
 
         const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/s1gpcuh93g4v5qqwhvg7w287c7om4uz";
 
-        async function comprarProduto(nomeDrama, precoProduto) {
+        async function comprarProduto(event, nomeDrama, precoProduto) {
             const userId = tg.initDataUnsafe?.user?.id || "teste_web";[cite: 1]
 
             event.target.innerText = "Gerando Pix...";
