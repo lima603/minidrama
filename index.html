@@ -13,49 +13,63 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
             margin: 0;
         }
         h1 {
-            margin-bottom: 25px;
-            font-size: 22px;
+            margin-bottom: 20px;
+            font-size: 20px;
             text-align: center;
+        }
+        .dramas-container {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            justify-content: center;
         }
         .drama-card {
             background-color: #1e1e1e;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 320px;
+            border-radius: 10px;
+            padding: 10px;
+            width: 48%;
+            max-width: 160px;
             text-align: center;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .drama-img {
             width: 100%;
-            height: 180px;
-            border-radius: 8px;
+            height: 130px;
+            border-radius: 6px;
             object-fit: cover;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .drama-title {
-            font-size: 18px;
+            font-size: 13px;
             font-weight: bold;
-            margin: 10px 0 5px 0;
+            margin: 5px 0;
+            line-height: 1.2;
+            height: 32px;
+            overflow: hidden;
         }
         .drama-price {
             color: #4cd137;
+            font-size: 13px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
         .btn-buy {
             background-color: #2481cc;
             color: white;
             border: none;
-            padding: 12px;
-            font-size: 15px;
+            padding: 8px;
+            font-size: 13px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             width: 100%;
             transition: background 0.3s;
@@ -73,20 +87,30 @@
 
     <h1>Escolha seu Minidrama</h1>
 
-    <!-- DRAMA 2 -->
-    <div class="drama-card">
-        <img src="capa2.jpg" alt="Capa Drama 2" class="drama-img">
-        <div class="drama-title">Princesa Renascida dos Três Cowboys</div>
-        <div class="drama-price">R$ 5,00</div>
-        <button class="btn-buy" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5.00)">Gerar PIX</button>
-    </div>
+    <div class="dramas-container">
+        <!-- DRAMA 1 -->
+        <div class="drama-card">
+            <div>
+                <img src="capa2.jpg" alt="Capa Drama 1" class="drama-img">
+                <div class="drama-title">Princesa Renascida dos Três Cowboys</div>
+            </div>
+            <div>
+                <div class="drama-price">R$ 5,00</div>
+                <button class="btn-buy" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5.00)">Gerar PIX</button>
+            </div>
+        </div>
 
-    <!-- DRAMA 1 -->
-    <div class="drama-card">
-        <img src="capa1.jpg" alt="Capa Drama 1" class="drama-img">
-        <div class="drama-title">A Herdeira que Bloqueou o Marido</div>
-        <div class="drama-price">R$ 5,00</div>
-        <button class="btn-buy" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5.00)">Gerar PIX</button>
+        <!-- DRAMA 2 -->
+        <div class="drama-card">
+            <div>
+                <img src="capa1.jpg" alt="Capa Drama 2" class="drama-img">
+                <div class="drama-title">A Herdeira que Bloqueou o Marido</div>
+            </div>
+            <div>
+                <div class="drama-price">R$ 5,00</div>
+                <button class="btn-buy" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5.00)">Gerar PIX</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -102,7 +126,7 @@
             const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) ? tg.initDataUnsafe.user.id : "teste_web";
             
             const botao = event.target;
-            botao.innerText = "Gerando Pix...";
+            botao.innerText = "Gerando...";
             botao.disabled = true;
 
             try {
