@@ -122,11 +122,11 @@
 
         const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/ju7lnikxsisbl10wh0a2d8vvdx39y858";
 
-        async function comprarProduto(event, nomeDrama, precoProduto) {
+       async function comprarProduto(event, nomeDrama, precoProduto) {
             const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) ? tg.initDataUnsafe.user.id : "teste_web";
             
             const botao = event.target;
-            botao.innerText = "Gerando...";
+            botao.innerText = "Gerando Pix...";
             botao.disabled = true;
 
             try {
@@ -141,18 +141,24 @@
                 });
 
                 if (resposta.ok) {
-                    // Fecha o Mini App e manda o usuário direto para o chat do bot
-                    if (tg && tg.close) {
-                        tg.close();
-                    }
+                    botao.innerText = "Pix Gerado! Redirecionando...";
+                    
+                    // Tenta fechar o Mini App de todas as formas possíveis no Telegram
+                    setTimeout(() => {
+                        if (window.Telegram && window.Telegram.WebApp) {
+                            window.Telegram.WebApp.close();
+                        } else if (typeof tg !== 'undefined' && tg.close) {
+                            tg.close();
+                        }
+                    }, 1000); // Espera 1 segundo para o usuário ler que deu certo e fecha
                 } else {
-                    alert('Erro ao comunicar com o servidor.');
+                    alert('Erro ao gerar o Pix. Tente novamente.');
                     botao.innerText = "Gerar PIX";
                     botao.disabled = false;
                 }
             } catch (erro) {
                 console.error('Erro:', erro);
-                alert('Falha ao enviar dados.');
+                alert('Falha de conexão.');
                 botao.innerText = "Gerar PIX";
                 botao.disabled = false;
             }
