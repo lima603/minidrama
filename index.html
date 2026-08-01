@@ -123,16 +123,14 @@
         const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/s43owf5is3s5a9cfxaxpo7qw83o1f0rf";
 
         async function comprarProduto(event, nomeDrama, precoProduto) {
-            // Pega o ID do usuário do Telegram de forma segura
             const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) ? tg.initDataUnsafe.user.id : "teste_web";
             
             const botao = event.target;
-            const textoOriginal = botao.innerText;
-            
-            botao.innerText = "Gerando Pix...";
+            botao.innerText = "Gerando...";
             botao.disabled = true;
 
             try {
+                // Envia os dados para o Make processar o pagamento no Mercado Pago
                 const resposta = await fetch(MAKE_WEBHOOK_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -144,17 +142,21 @@
                 });
 
                 if (resposta.ok) {
-                    botao.innerText = "✅ Pix gerado! Volte para o chat.";
-                    botao.style.backgroundColor = "#27ae60";
+                    botao.innerText = "Pronto!";
+                    
+                    // Fecha o Mini App automaticamente após meio segundo e joga para o chat do bot
+                    setTimeout(() => {
+                        tg.close();
+                    }, 500);
                 } else {
                     alert('Erro ao gerar o Pix. Tente novamente.');
-                    botao.innerText = textoOriginal;
+                    botao.innerText = "Gerar PIX";
                     botao.disabled = false;
                 }
             } catch (erro) {
                 console.error('Erro na requisição:', erro);
                 alert('Falha de conexão com o servidor.');
-                botao.innerText = textoOriginal;
+                botao.innerText = "Gerar PIX";
                 botao.disabled = false;
             }
         }
