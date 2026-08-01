@@ -141,18 +141,19 @@
                 });
 
                 if (resposta.ok) {
-                    alert('Pix gerado com sucesso!');
+                    // Fecha o Mini App e manda o usuário direto para o chat do bot
+                    if (tg && tg.close) {
+                        tg.close();
+                    }
                 } else {
                     alert('Erro ao comunicar com o servidor.');
+                    botao.innerText = "Gerar PIX";
+                    botao.disabled = false;
                 }
             } catch (erro) {
                 console.error('Erro:', erro);
                 alert('Falha ao enviar dados.');
-            } finally {
                 botao.innerText = "Gerar PIX";
                 botao.disabled = false;
             }
         }
-    </script>
-</body>
-</html>
