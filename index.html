@@ -101,7 +101,7 @@
             <img src="capa2.jpg" alt="Princesa Renascida">
             <h3>Princesa Renascida dos Três Cowboys</h3>
             <div class="price">R$ 5,00</div>
-            <button class="btn-comprar" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5.00)">Gerar PIX</button>
+            <button class="btn-comprar" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5.00, '-1003911104947')">Gerar PIX</button>
         </div>
 
         <!-- Minidrama 2 -->
@@ -109,7 +109,7 @@
             <img src="capa1.jpg" alt="A Herdeira">
             <h3>A Herdeira que Bloqueou o Marido</h3>
             <div class="price">R$ 5,00</div>
-            <button class="btn-comprar" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5.00)">Gerar PIX</button>
+            <button class="btn-comprar" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5.00, '-1003800048767')">Gerar PIX</button>
         </div>
     </div>
 
@@ -122,7 +122,7 @@
         // COLE AQUI O SEU LINK DO WEBHOOK DO MAKE ATUALIZADO
         const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/s43owf5is3s5a9cfxaxpo7qw83o1f0rf";
 
-        async function comprarProduto(event, nomeDrama, precoProduto) {
+        async function comprarProduto(event, nomeDrama, precoProduto, chatId) {
             const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) ? tg.initDataUnsafe.user.id : "teste_web";
             
             const botao = event.target;
@@ -137,7 +137,8 @@
                     body: JSON.stringify({
                         user_id: userId,
                         drama: nomeDrama,
-                        valor: precoProduto
+                        valor: precoProduto,
+                        chat_id: chatId  // <-- Adicione esta linha aqui
                     })
                 });
 
