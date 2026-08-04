@@ -1,166 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVSéries - Minidramas</title>
-    <!-- Script oficial do Telegram Web App -->
+    <title>TVSéries</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            margin: 0;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-align: center;
-            color: #e0e0e0;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .card {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .card h3 {
-            font-size: 14px;
-            text-align: center;
-            margin: 10px 8px 4px 8px;
-            height: 36px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .price {
-            color: #2ecc71;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .btn-comprar {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 90%;
-            transition: background 0.2s;
-        }
-
-        .btn-comprar:active {
-            background-color: #2980b9;
-        }
-
-        .btn-comprar:disabled {
-            background-color: #555;
-            cursor: not-allowed;
-        }
-    </style>
 </head>
+
 <body>
 
-    <h2>Escolha seu Minidrama</h2>
-
-    <div class="container">
-        <!-- Minidrama 1 -->
-        <div class="card">
-            <img src="capa2.jpg" alt="Princesa Renascida">
-            <h3>Princesa Renascida dos Três Cowboys</h3>
-            <div class="price">R$ 5,00</div>
-            <button class="btn-comprar" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5.00, '-1003911104947')">Gerar PIX</button>
+    <header>
+        <div class="logo">
+            <h1>TV<span>Séries</span></h1>
+            <p class="sub">Os melhores minidramas dublados</p>
         </div>
-
-        <!-- Minidrama 2 -->
-        <div class="card">
-            <img src="capa1.jpg" alt="A Herdeira">
-            <h3>A Herdeira que Bloqueou o Marido</h3>
-            <div class="price">R$ 5,00</div>
-            <button class="btn-comprar" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5.00, '-1003800048767')">Gerar PIX</button>
+        <div class="search">
+            <input type="text" id="pesquisa" placeholder="Pesquisar minidramas...">
         </div>
+    </header>
+
+    <!-- BANNER -->
+    <section class="banner">
+        <div class="slide">
+            <img src="banner1.jpg" alt="Banner">
+            <div class="slide-info">
+                <h2>Lançamentos da Semana</h2>
+                <p>Assista os dramas mais assistidos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EM ALTA -->
+    <div class="section-title">
+        <h2>🔥 Em Alta</h2>
+        <a href="#">Ver Todos</a>
     </div>
+    <section class="lista">
+        <div class="card">
+            <img src="capa1.jpg" alt="Drama">
+            <div class="info">
+                <span class="tag">DUBLADO</span>
+                <h3 class="nome">A Herdeira que Bloqueou o Marido</h3>
+                <div class="stars">★★★★★</div>
+                <div class="preco">R$ 5,00</div>
+                <button class="btn-comprar" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5, '-1003800048767')">
+                    COMPRAR
+                </button>
+            </div>
+        </div>
 
-    <script>
-        // Inicializa o Web App do Telegram
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-        tg.expand();
+        <div class="card">
+            <img src="capa2.jpg" alt="Drama">
+            <div class="info">
+                <span class="tag vip">VIP</span>
+                <h3 class="nome">Princesa Renascida dos Três Cowboys</h3>
+                <div class="stars">★★★★★</div>
+                <div class="preco">R$ 5,00</div>
+                <button class="btn-comprar" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5, '-1003911104947')">
+                    COMPRAR
+                </button>
+            </div>
+        </div>
+    </section>
 
-        // COLE AQUI O SEU LINK DO WEBHOOK DO MAKE ATUALIZADO
-        const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/s43owf5is3s5a9cfxaxpo7qw83o1f0rf";
+    <!-- LANÇAMENTOS -->
+    <div class="section-title">
+        <h2>🆕 Lançamentos</h2>
+        <a href="#">Ver Todos</a>
+    </div>
+    <section class="lista">
+        <div class="card">
+            <img src="capa2.jpg" alt="Drama">
+            <div class="info">
+                <span class="tag novo">NOVO</span>
+                <h3 class="nome">Princesa Renascida dos Três Cowboys</h3>
+                <div class="stars">★★★★★</div>
+                <div class="preco">R$ 5,00</div>
+                <button class="btn-comprar" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5, '-1003911104947')">
+                    COMPRAR
+                </button>
+            </div>
+        </div>
+    </section>
 
-        async function comprarProduto(event, nomeDrama, precoProduto, chatId) {
-            const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) ? tg.initDataUnsafe.user.id : "teste_web";
-            
-            const botao = event.target;
-            botao.innerText = "Gerando...";
-            botao.disabled = true;
+    <!-- EXCLUSIVOS -->
+    <div class="section-title">
+        <h2>👑 Exclusivos TVSéries</h2>
+        <a href="#">Ver Todos</a>
+    </div>
+    <section class="lista">
+        <div class="card">
+            <img src="capa1.jpg" alt="Drama">
+            <div class="info">
+                <span class="tag">EXCLUSIVO</span>
+                <h3 class="nome">A Herdeira que Bloqueou o Marido</h3>
+                <div class="stars">★★★★★</div>
+                <div class="preco">R$ 5,00</div>
+                <button class="btn-comprar" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5, '-1003800048767')">
+                    COMPRAR
+                </button>
+            </div>
+        </div>
+    </section>
 
-            try {
-                // Envia os dados para o Make processar o pagamento no Mercado Pago
-                const resposta = await fetch(MAKE_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        user_id: userId,
-                        drama: nomeDrama,
-                        valor: precoProduto,
-                        chat_id: chatId  // <-- Adicione esta linha aqui
-                    })
-                });
+    <!-- BENEFÍCIOS -->
+    <section class="beneficios">
+        <div class="beneficio">
+            <h3>⚡ Liberação Instantânea</h3>
+            <p>Após o pagamento o acesso é liberado automaticamente.</p>
+        </div>
+        <div class="beneficio">
+            <h3>🔒 Compra Segura</h3>
+            <p>Pagamento processado pelo Mercado Pago.</p>
+        </div>
+        <div class="beneficio">
+            <h3>🎬 Conteúdo Exclusivo</h3>
+            <p>Os melhores minidramas dublados e legendados.</p>
+        </div>
+    </section>
 
-                if (resposta.ok) {
-                    botao.innerText = "Pronto!";
-                    
-                    // Fecha o Mini App automaticamente após meio segundo e joga para o chat do bot
-                    setTimeout(() => {
-                        tg.close();
-                    }, 500);
-                } else {
-                    alert('Erro ao gerar o Pix. Tente novamente.');
-                    botao.innerText = "Gerar PIX";
-                    botao.disabled = false;
-                }
-            } catch (erro) {
-                console.error('Erro na requisição:', erro);
-                alert('Falha de conexão com o servidor.');
-                botao.innerText = "Gerar PIX";
-                botao.disabled = false;
-            }
-        }
-    </script>
+    <!-- SUPORTE -->
+    <section class="suporte">
+        <h2>Precisa de ajuda?</h2>
+        <p>Caso tenha qualquer dúvida fale diretamente conosco pelo Telegram.</p>
+        <button class="btn-suporte">Falar com o Suporte</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            <h2>TV<span>Séries</span></h2>
+        </div>
+        <p>© 2026 TVSéries</p>
+        <p>Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
