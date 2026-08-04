@@ -1,0 +1,795 @@
+/* ===========================================
+   TVSéries V2 - Premium
+=========================================== */
+
+:root{
+
+--bg:#080808;
+--card:#151515;
+--cardHover:#1f1f1f;
+
+--red:#E50914;
+
+--green:#18d26e;
+
+--white:#ffffff;
+
+--gray:#cfcfcf;
+
+--shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+body{
+
+background:var(--bg);
+
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+
+color:var(--white);
+
+overflow-x:hidden;
+
+}
+
+/* ========================= */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+background:rgba(8,8,8,.95);
+
+backdrop-filter:blur(18px);
+
+padding:18px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+/* ========================= */
+
+.logo{
+
+text-align:center;
+
+}
+
+.logo h1{
+
+font-size:38px;
+
+font-weight:900;
+
+color:var(--red);
+
+letter-spacing:1px;
+
+}
+
+.logo span{
+
+color:white;
+
+}
+
+.sub{
+
+color:#9e9e9e;
+
+margin-top:8px;
+
+font-size:14px;
+
+}
+
+/* ========================= */
+
+.search{
+
+width:100%;
+
+}
+
+.search input{
+
+width:100%;
+
+height:52px;
+
+background:#1b1b1b;
+
+border:none;
+
+border-radius:30px;
+
+padding-left:22px;
+
+color:white;
+
+font-size:15px;
+
+outline:none;
+
+transition:.30s;
+
+}
+
+.search input:focus{
+
+background:#272727;
+
+}
+
+/* ========================= */
+
+.banner{
+
+padding:20px;
+
+}
+
+.slide{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.slide img{
+
+width:100%;
+
+height:260px;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+.slide-info{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+padding:30px;
+
+background:linear-gradient(transparent,#000);
+
+}
+
+.slide-info h2{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+.slide-info p{
+
+color:#ddd;
+
+line-height:24px;
+
+}
+
+/* ========================= */
+
+.section-title{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 22px;
+
+margin-top:28px;
+
+margin-bottom:18px;
+
+}
+
+.section-title h2{
+
+font-size:22px;
+
+}
+
+.section-title a{
+
+color:var(--red);
+
+text-decoration:none;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+/* ========================= */
+
+.lista{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+padding:20px;
+
+}
+/* ===========================================
+   CARDS PREMIUM
+=========================================== */
+
+.card{
+
+background:var(--card);
+
+border-radius:22px;
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+background:var(--cardHover);
+
+}
+
+.card img{
+
+width:100%;
+
+height:240px;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+.info{
+
+padding:15px;
+
+}
+
+/* ===========================================
+   TAGS
+=========================================== */
+
+.tag{
+
+display:inline-block;
+
+padding:5px 12px;
+
+border-radius:30px;
+
+font-size:11px;
+
+font-weight:bold;
+
+letter-spacing:.5px;
+
+background:var(--red);
+
+color:white;
+
+margin-bottom:12px;
+
+text-transform:uppercase;
+
+}
+
+.tag.vip{
+
+background:#FFD700;
+
+color:#000;
+
+}
+
+.tag.novo{
+
+background:#18d26e;
+
+}
+
+/* ===========================================
+   TITULO
+=========================================== */
+
+.nome{
+
+font-size:16px;
+
+font-weight:700;
+
+line-height:23px;
+
+margin-bottom:10px;
+
+min-height:46px;
+
+}
+
+/* ===========================================
+   ESTRELAS
+=========================================== */
+
+.stars{
+
+color:#FFD700;
+
+font-size:15px;
+
+margin-bottom:12px;
+
+}
+
+/* ===========================================
+   PREÇO
+=========================================== */
+
+.preco{
+
+font-size:24px;
+
+font-weight:900;
+
+color:var(--green);
+
+margin-bottom:16px;
+
+}
+
+/* ===========================================
+   BOTÃO COMPRAR
+=========================================== */
+
+.btn-comprar{
+
+width:100%;
+
+height:50px;
+
+border:none;
+
+border-radius:14px;
+
+background:var(--red);
+
+color:white;
+
+font-size:15px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.30s;
+
+}
+
+.btn-comprar:hover{
+
+background:#ff2432;
+
+}
+
+.btn-comprar:active{
+
+transform:scale(.96);
+
+}
+
+.btn-comprar:disabled{
+
+background:#555;
+
+cursor:not-allowed;
+
+}
+
+/* ===========================================
+   BENEFÍCIOS
+=========================================== */
+
+.beneficios{
+
+padding:22px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+}
+
+.beneficio{
+
+background:#141414;
+
+padding:18px;
+
+border-radius:18px;
+
+box-shadow:var(--shadow);
+
+}
+
+.beneficio h3{
+
+margin-bottom:8px;
+
+font-size:17px;
+
+}
+
+.beneficio p{
+
+color:#cfcfcf;
+
+font-size:14px;
+
+line-height:22px;
+
+}
+
+/* ===========================================
+   SUPORTE
+=========================================== */
+
+.suporte{
+
+padding:25px;
+
+text-align:center;
+
+}
+
+.suporte h2{
+
+margin-bottom:12px;
+
+}
+
+.suporte p{
+
+color:#bdbdbd;
+
+line-height:24px;
+
+margin-bottom:20px;
+
+}
+
+.btn-suporte{
+
+background:#1f1f1f;
+
+color:white;
+
+border:none;
+
+padding:14px 26px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.30s;
+
+}
+
+.btn-suporte:hover{
+
+background:#2a2a2a;
+
+}
+/* ===========================================
+   FOOTER
+=========================================== */
+
+footer{
+
+margin-top:35px;
+
+padding:30px 20px;
+
+text-align:center;
+
+background:#111;
+
+border-top:1px solid #222;
+
+}
+
+.footer-logo h2{
+
+font-size:30px;
+
+font-weight:900;
+
+color:var(--red);
+
+margin-bottom:12px;
+
+}
+
+.footer-logo span{
+
+color:white;
+
+}
+
+footer p{
+
+color:#888;
+
+font-size:14px;
+
+margin-top:6px;
+
+}
+
+/* ===========================================
+   ANIMAÇÕES
+=========================================== */
+
+.card{
+
+animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.slide img{
+
+animation:zoomBanner 12s infinite alternate;
+
+}
+
+@keyframes zoomBanner{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.08);
+
+}
+
+}
+
+/* ===========================================
+   EFEITO BOTÃO
+=========================================== */
+
+.btn-comprar{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.btn-comprar::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:60px;
+
+height:100%;
+
+background:rgba(255,255,255,.25);
+
+transform:skewX(-25deg);
+
+transition:.6s;
+
+}
+
+.btn-comprar:hover::after{
+
+left:140%;
+
+}
+
+/* ===========================================
+   SCROLLBAR
+=========================================== */
+
+::-webkit-scrollbar{
+
+width:7px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--red);
+
+border-radius:20px;
+
+}
+
+/* ===========================================
+   RESPONSIVO
+=========================================== */
+
+@media(max-width:768px){
+
+.lista{
+
+grid-template-columns:1fr;
+
+padding:18px;
+
+}
+
+.card img{
+
+height:320px;
+
+}
+
+.logo h1{
+
+font-size:32px;
+
+}
+
+.slide img{
+
+height:220px;
+
+}
+
+.section-title h2{
+
+font-size:20px;
+
+}
+
+}
+
+@media(max-width:430px){
+
+header{
+
+padding:15px;
+
+}
+
+.slide img{
+
+height:190px;
+
+}
+
+.slide-info{
+
+padding:18px;
+
+}
+
+.slide-info h2{
+
+font-size:22px;
+
+}
+
+.nome{
+
+font-size:15px;
+
+}
+
+.preco{
+
+font-size:22px;
+
+}
+
+.btn-comprar{
+
+height:46px;
+
+font-size:14px;
+
+}
+
+.search input{
+
+height:48px;
+
+font-size:14px;
+
+}
+
+}
+
+/* ===========================================
+   FIM DO CSS
+=========================================== */
