@@ -793,3 +793,37 @@ font-size:14px;
 /* ===========================================
    FIM DO CSS
 =========================================== */
+
+/* ==========================================
+   ESTILOS PARA OS FILTROS DE CATEGORIA
+========================================== */
+.filtros-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 15px 15px 5px 15px;
+    scrollbar-width: none;
+}
+
+.filtros-container::-webkit-scrollbar {
+    display: none;
+}
+
+.filtro-btn {
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.filtro-btn.ativo, .filtro-btn:hover {
+    background-color: #e50914;
+    border-color: #e50914;
+    font-weight: bold;
+}
+
