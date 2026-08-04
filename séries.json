@@ -1,0 +1,42 @@
+[
+  {
+    "nome": "A Herdeira que Bloqueou o Marido",
+    "categoria": "drama",
+    "tag": "DUBLADO",
+    "preco": 5.00,
+    "imagem": "capa1.jpg",
+    "chatId": "-1003800048767"
+  },
+  {
+    "nome": "Princesa Renascida dos Três Cowboys",
+    "categoria": "fantasia",
+    "tag": "VIP",
+    "preco": 5.00,
+    "imagem": "capa2.jpg",
+    "chatId": "-1003911104947"
+  },
+  {
+    "nome": "Me Rejeite Rei Dragão",
+    "categoria": "fantasia",
+    "tag": "NOVO",
+    "preco": 5.00,
+    "imagem": "capa3.jpg",
+    "chatId": "-1004295806571"
+  },
+  {
+    "nome": "Meu Adeus ao Rei da Máfia",
+    "categoria": "mafia",
+    "tag": "NOVO",
+    "preco": 5.00,
+    "imagem": "capa4.jpg",
+    "chatId": "-1004315102466"
+  },
+  {
+    "nome": "O Lobisomem Viciado em Sexo e Sua Terapeuta",
+    "categoria": "lobisomem",
+    "tag": "NOVO",
+    "preco": 5.00,
+    "imagem": "capa5.jpg",
+    "chatId": "-1004302050917"
+  }
+]
