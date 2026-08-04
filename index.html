@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -32,86 +32,21 @@
         </div>
     </section>
 
-    <!-- EM ALTA -->
-    <div class="section-title">
-        <h2>🔥 Em Alta</h2>
-        <a href="#">Ver Todos</a>
+    <!-- FILTROS POR CATEGORIA -->
+    <div class="filtros-container">
+        <button class="filtro-btn ativo" onclick="filtrarSeries('todos', event)">Todos</button>
+        <button class="filtro-btn" onclick="filtrarSeries('drama', event)">Dramas</button>
+        <button class="filtro-btn" onclick="filtrarSeries('fantasia', event)">Fantasia</button>
+        <button class="filtro-btn" onclick="filtrarSeries('mafia', event)">Máfia</button>
+        <button class="filtro-btn" onclick="filtrarSeries('lobisomem', event)">Lobisomem</button>
     </div>
-    <section class="lista">
-        <div class="card">
-            <img src="capa1.jpg" alt="Drama">
-            <div class="info">
-                <span class="tag">DUBLADO</span>
-                <h3 class="nome">A Herdeira que Bloqueou o Marido</h3>
-                <div class="stars">★★★★★</div>
-                <div class="preco">R$ 5,00</div>
-                <button class="btn-comprar" onclick="comprarProduto(event, 'A Herdeira que Bloqueou o Marido', 5, '-1003800048767')">
-                    COMPRAR
-                </button>
-            </div>
-        </div>
 
-        <div class="card">
-            <img src="capa2.jpg" alt="Drama">
-            <div class="info">
-                <span class="tag vip">VIP</span>
-                <h3 class="nome">Princesa Renascida dos Três Cowboys</h3>
-                <div class="stars">★★★★★</div>
-                <div class="preco">R$ 5,00</div>
-                <button class="btn-comprar" onclick="comprarProduto(event, 'Princesa Renascida dos Três Cowboys', 5, '-1003911104947')">
-                    COMPRAR
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- LANÇAMENTOS E NOVAS SÉRIES -->
+    <!-- CATÁLOGO DINÂMICO -->
     <div class="section-title">
-        <h2>🆕 Lançamentos e Novidades</h2>
-        <a href="#">Ver Todos</a>
+        <h2>🎬 Catálogo de Séries</h2>
     </div>
-    <section class="lista">
-        <!-- NOVA SÉRIE 1 (Edite aqui) -->
-        <div class="card">
-            <img src="capa3.jpg" alt="Drama">
-            <div class="info">
-                <span class="tag novo">NOVO</span>
-                <h3 class="nome">Me Rejeite Rei Dragão</h3>
-                <div class="stars">★★★★★</div>
-                <div class="preco">R$ 5,00</div>
-                <button class="btn-comprar" onclick="comprarProduto(event, 'Me Rejeite Rei Dragrão', 5, '-1004295806571')">
-                    COMPRAR
-                </button>
-            </div>
-        </div>
-
-        <!-- NOVA SÉRIE 2 (Edite aqui) -->
-        <div class="card">
-            <img src="capa4.jpg" alt="Drama">
-            <div class="info">
-                <span class="tag novo">NOVO</span>
-                <h3 class="nome">Meu Adeus ao Rei da Máfia</h3>
-                <div class="stars">★★★★★</div>
-                <div class="preco">R$ 5,00</div>
-                <button class="btn-comprar" onclick="comprarProduto(event, 'Meu Adeus ao Rei da Máfia', 5, '-1004315102466')">
-                    COMPRAR
-                </button>
-            </div>
-        </div>
-
-        <!-- NOVA SÉRIE 3 (Edite aqui) -->
-        <div class="card">
-            <img src="capa5.jpg" alt="Drama">
-            <div class="info">
-                <span class="tag novo">NOVO</span>
-                <h3 class="nome">O Lobisomem Viciado em Sexo e Sua Terapeuta</h3>
-                <div class="stars">★★★★★</div>
-                <div class="preco">R$ 5,00</div>
-                <button class="btn-comprar" onclick="comprarProduto(event, 'O Lobisomem Viciado em Sexo e Sua Terapeuta', 5, '-1004302050917')">
-                    COMPRAR
-                </button>
-            </div>
-        </div>
+    <section class="lista catalogo-grid">
+        <!-- As séries serão carregadas automaticamente aqui pelo script.js -->
     </section>
 
     <!-- BENEFÍCIOS -->
@@ -150,3 +85,4 @@
 </body>
 
 </html>
+          
