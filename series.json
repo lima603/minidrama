@@ -46,5 +46,13 @@
     "preco": 5.00,
     "imagem": "capa6.jpg",
     "chatId": "-1004482888813"
+  },
+  {
+    "nome": "A Caipira e o Herdeiro Bilionário",
+    "categoria": "lançamentos",
+    "tag": "NOVO",
+    "preco": 5.00,
+    "imagem": "capa7.jpg",
+    "chatId": "-1004477029570"
   }
 ]
