@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(series => {
             todasAsSeries = series;
-            // Exibe a lista ordenada de A a Z logo no carregamento inicial
+            // Exibe a lista inicial ordenada de A a Z
             const ordenadas = [...todasAsSeries].sort((a, b) => a.nome.localeCompare(b.nome));
             exibirSeries(ordenadas);
         })
@@ -88,7 +88,9 @@ if (pesquisa) {
         const filtradas = todasAsSeries.filter(serie => 
             serie.nome.toLowerCase().includes(texto)
         );
-        exibirSeries(filtradas);
+        // Ordena também os resultados da pesquisa alfabeticamente
+        const filtradasOrdenadas = [...filtradas].sort((a, b) => a.nome.localeCompare(b.nome));
+        exibirSeries(filtradasOrdenadas);
     });
 }
 
@@ -105,14 +107,17 @@ function filtrarSeries(categoria, event) {
         event.target.classList.add('ativo');
     }
 
+    let listaParaExibir = [];
+
     if (categoria === 'todos') {
-        // Ordena alfabeticamente de A a Z quando clicar em "Todas[span_1](start_span)"[span_1](end_span)
-        const ordenadas = [...todasAsSeries].sort((a, b) => a.nome.localeCompare(b.nome));
-        exibirSeries(ordenadas);
+        listaParaExibir = [...todasAsSeries];
     } else {
-        const filtradas = todasAsSeries.filter(serie => serie.categoria === categoria);
-        exibirSeries(filtradas);
+        listaParaExibir = todasAsSeries.filter(serie => serie.categoria === categoria);
     }
+
+    // Aplica a ordem alfabética (A a Z) em qualquer filtro escolhido[span_1](start_span)[span_1](end_span)
+    const listaOrdenada = listaParaExibir.sort((a, b) => a.nome.localeCompare(b.nome));
+    exibirSeries(listaOrdenada);
 }
 
 /* ==========================================
