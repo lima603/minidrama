@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(series => {
             todasAsSeries = series;
-            exibirSeries(todasAsSeries);
+            // Exibe a lista ordenada de A a Z logo no carregamento inicial
+            const ordenadas = [...todasAsSeries].sort((a, b) => a.nome.localeCompare(b.nome));
+            exibirSeries(ordenadas);
         })
         .catch(error => console.error('Erro ao carregar as séries:', error));
 });
@@ -104,7 +106,9 @@ function filtrarSeries(categoria, event) {
     }
 
     if (categoria === 'todos') {
-        exibirSeries(todasAsSeries);
+        // Ordena alfabeticamente de A a Z quando clicar em "Todas[span_1](start_span)"[span_1](end_span)
+        const ordenadas = [...todasAsSeries].sort((a, b) => a.nome.localeCompare(b.nome));
+        exibirSeries(ordenadas);
     } else {
         const filtradas = todasAsSeries.filter(serie => serie.categoria === categoria);
         exibirSeries(filtradas);
