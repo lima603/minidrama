@@ -105,12 +105,21 @@
   },
   {
     
-"nome": "Depois da Queda",
+    "nome": "Depois da Queda",
     "categoria": "dublados",
     "tag": "DUBLADO",
     "preco": 5.00,
     "imagem": "capa14.jpg",
     "chatId": "-1004462263395"
+  },
+  {
+    "nome": "Atirador Solitário Um tiro de Vingança",
+    "categoria": "dublados",
+    "tag": "DUBLADO",
+    "preco": 5.00,
+    "imagem": "capa15.jpg",
+    "chatId": "-1004337037315"
   }
+    
    
 ]
