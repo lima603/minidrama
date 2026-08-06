@@ -72,11 +72,19 @@
     "chatId": "-1004301319792"
   },
   {
-     "nome": "Eu Fiz meu Marido Magnata Mas ele me Traiu",
+    "nome": "Eu Fiz meu Marido Magnata Mas ele me Traiu",
     "categoria": "dublados",
     "tag": "NOVO",
     "preco": 5.00,
     "imagem": "capa10.jpg",
     "chatId": "-1004360426588"
+  },
+  {
+    "nome": "A irmã Errada na Cama dele",
+    "categoria": "legendados",
+    "tag": "NOVO",
+    "preco": 5.00,
+    "imagem": "capa11.jpg",
+    "chatId": "-1004406978423"
   }
 ]
