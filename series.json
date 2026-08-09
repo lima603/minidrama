@@ -135,6 +135,22 @@
     "preco": 5.00,
     "imagem": "capa17.jpg",
     "chatId": "-1003849523920"
+  },
+  {
+    "nome": "Meus Cinco Maridos Bestiais",
+    "categoria": "dublados",
+    "tag": "NOVO",
+    "preco": 5.00,
+    "imagem": "capa18.jpg",
+    "chatId": "-1003896909973"
+  },
+  {
+    "nome": "Criei a Filha da Amante do Meu Marido",
+    "categoria": "doramas",
+    "tag": "DUBLADO",
+    "preco": 5.00,
+    "imagem": "capa19.jpg",
+    "chatId": "-1003872656399"
   }
    
 ]
