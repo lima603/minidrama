@@ -175,5 +175,14 @@
     "preco": 5.00,
     "imagem": "capa22.jpg",
     "chatId": "-1004316411524"
+  },
+  {
+    "nome": "Meu Elfo Meu Amor",
+    "categoria": "dublados",
+    "tag": "DUBLADO",
+    "preco": 5.00,
+    "imagem": "capa23.jpg",
+    "chatId": "-1003937936461"
   }
+    
 ]
