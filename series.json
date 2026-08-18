@@ -153,7 +153,7 @@
     "chatId": "-1003872656399"
   },
   {
-    "nome": "Contrato com o Don de Babá a Esposa",
+    "nome": "Contrato Com o Don de Babá a Esposa",
     "categoria": "dublados",
     "tag": "DUBLADO",
     "preco": 5.00,
@@ -169,7 +169,7 @@
     "chatId": "-1004481276020"
   },
   {
-   "nome": "Não era a Noiva Que ele Queria",
+   "nome": "Não Era a Noiva Que Ele Queria",
     "categoria": "dublados",
     "tag": "DUBLADO",
     "preco": 5.00,
@@ -183,6 +183,15 @@
     "preco": 5.00,
     "imagem": "capa23.jpg",
     "chatId": "-1003937936461"
+  },
+  {
+    "nome": "Amaldiçoada Casei Com o Don No Lugar da Minha Irmã",
+    "categoria": "lançamentos",
+    "tag": "DUBLADO",
+    "preco": 5.00,
+    "imagem": "capa24.jpg",
+    "chatId": "-1004385933025"
   }
+    
     
 ]
