@@ -16,14 +16,8 @@
             <h1>TV<span>Séries</span></h1>
             <p class="sub">Os melhores minidramas dublados</p>
         </div>
-        <!-- CAMPO DE PESQUISA E BOTÃO MEUS ACESSOS LADO A LADO -->
-        <div class="header-top">
-            <div class="search">
-                <input type="text" id="pesquisa" placeholder="Pesquisar minidramas...">
-            </div>
-            <button class="btn-meus-acessos" onclick="abrirMeusAcessos()">
-                🔑 Meus Acessos
-            </button>
+        <div class="search">
+            <input type="text" id="pesquisa" placeholder="Pesquisar minidramas...">
         </div>
     </header>
 
@@ -87,58 +81,6 @@
         <p>Todos os direitos reservados.</p>
     </footer>
 
-    <!-- MODAL DE MEUS ACESSOS -->
-    <div id="modal-acessos" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-        <div style="background: #151515; width: 100%; max-width: 400px; border-radius: 20px; padding: 25px; text-align: center; border: 1px solid #333; position: relative;">
-            
-            <!-- Botão Fechar -->
-            <button onclick="fecharMeusAcessos()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;">✕</button>
-            
-            <h2 style="color: #fff; margin-bottom: 15px; font-size: 22px;">🔑 Meus Acessos VIP</h2>
-            <p id="status-carregando" style="color: #aaa; font-size: 14px; margin-bottom: 20px;">Verificando suas assinaturas...</p>
-            
-            <!-- Conteúdo que muda dinamicamente -->
-            <div id="conteudo-acessos" style="display: none; text-align: left; flex-direction: column; gap: 15px;">
-                <!-- Aqui vão aparecer os grupos ativos -->
-            </div>
-
-            <button onclick="fecharMeusAcessos()" style="margin-top: 20px; width: 100%; padding: 12px; background: #333; color: #fff; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">Fechar</button>
-        </div>
-    </div>
-
-    <script>
-        function abrirMeusAcessos() {
-            const modal = document.getElementById('modal-acessos');
-            const statusText = document.getElementById('status-carregando');
-            const conteudo = document.getElementById('conteudo-acessos');
-            
-            modal.style.display = 'flex';
-            statusText.style.display = 'block';
-            conteudo.style.display = 'none';
-            conteudo.innerHTML = '';
-
-            // Pega o ID do usuário do Telegram se estiver rodando dentro do bot
-            const tg = window.Telegram.WebApp;
-            const userId = tg.initDataUnsafe?.user?.id || "teste_usuario";
-
-            // Simulação de busca (em breve integrada com o Make)
-            setTimeout(() => {
-                statusText.style.display = 'none';
-                conteudo.style.display = 'flex';
-                conteudo.innerHTML = `
-                    <div style="background: #1f1f1f; padding: 15px; border-radius: 12px; border-left: 4px solid #18d26e;">
-                        <h3 style="color: #18d26e; font-size: 16px; margin-bottom: 5px;">VIP Dublado (Mensal)</h3>
-                        <p style="font-size: 13px; color: #ccc; margin-bottom: 10px;">Expira em: 25/05/2026</p>
-                        <a href="https://t.me/+SEU_LINK_GRUPO_DUBLADO" target="_blank" style="display: block; text-align: center; background: #18d26e; color: #000; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">Entrar no Grupo VIP</a>
-                    </div>
-                `;
-            }, 1000);
-        }
-
-        function fecharMeusAcessos() {
-            document.getElementById('modal-acessos').style.display = 'none';
-        }
-    </script>
     <script src="script.js"></script>
 </body>
 
