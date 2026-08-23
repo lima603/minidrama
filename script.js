@@ -115,7 +115,7 @@ function filtrarSeries(categoria, event) {
         listaParaExibir = todasAsSeries.filter(serie => serie.categoria === categoria);
     }
 
-    // Aplica a ordem alfabética (A a Z) em qualquer filtro escolhido
+    // Aplica a ordem alfabética (A a Z) em qualquer filtro escolhido[span_0](start_span)[span_0](end_span)
     const listaOrdenada = listaParaExibir.sort((a, b) => a.nome.localeCompare(b.nome));
     exibirSeries(listaOrdenada);
 }
@@ -198,4 +198,4 @@ async function comprarProduto(
         botao.innerHTML = textoOriginal;
         botao.disabled = false;
     }
-                   }
+}
