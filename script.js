@@ -14,6 +14,9 @@ tg.expand();
 
 const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/s43owf5is3s5a9cfxaxpo7qw83o1f0rf";
 
+// URL do Webhook do Make para consultar os acessos (coloque aqui a URL específica do cenário de consulta se for diferente, ou use a mesma tratando por parâmetro)
+const MAKE_WEBHOOK_MEUS_ACESSOS = "https://hook.us2.make.com/s43owf5is3s5a9cfxaxpo7qw83o1f0rf";
+
 let todasAsSeries = [];
 
 /* ==========================================
@@ -112,10 +115,10 @@ function filtrarSeries(categoria, event) {
     if (categoria === 'todos') {
         listaParaExibir = [...todasAsSeries];
     } else {
-        listaParaExibir = todasAsSeries.filter(serie => serie.categoria === categoria);
+        listaParaExibir = todAsAsSeries.filter(serie => serie.categoria === categoria);
     }
 
-    // Aplica a ordem alfabética (A a Z) em qualquer filtro escolhido[span_1](start_span)[span_1](end_span)
+    // Aplica a ordem alfabética (A a Z) em qualquer filtro escolhido
     const listaOrdenada = listaParaExibir.sort((a, b) => a.nome.localeCompare(b.nome));
     exibirSeries(listaOrdenada);
 }
@@ -198,4 +201,75 @@ async function comprarProduto(
         botao.innerHTML = textoOriginal;
         botao.disabled = false;
     }
+}
+
+/* ==========================================
+   FUNÇÃO MEUS ACESSOS (MODAL & API)
+========================================== */
+
+async function abrirMeusAcessos() {
+    const modal = document.getElementById('modal-acessos');
+    const statusText = document.getElementById('status-carregando');
+    const conteudo = document.getElementById('conteudo-acessos');
+    
+    modal.style.display = 'flex';
+    statusText.style.display = 'block';
+    statusText.innerText = "Verificando suas assinaturas...";
+    conteudo.style.display = 'none';
+    conteudo.innerHTML = '';
+
+    const userId = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user)
+        ? tg.initDataUnsafe.user.id
+        : "teste_usuario";
+
+    try {
+        const resposta = await fetch(MAKE_WEBHOOK_MEUS_ACESSOS, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                action: "verificar_acessos",
+                user_id: userId
+            })
+        });
+
+        if (resposta.ok) {
+            const dados = await resposta.json();
+            statusText.style.display = 'none';
+            conteudo.style.display = 'flex';
+
+            if (dados && dados.length > 0) {
+                let htmlAcessos = '';
+                dados.forEach(acesso => {
+                    htmlAcessos += `
+                        <div style="background: #1f1f1f; padding: 15px; border-radius: 12px; border-left: 4px solid #18d26e; margin-bottom: 10px;">
+                            <h3 style="color: #18d26e; font-size: 16px; margin-bottom: 5px;">${acesso.nome_plano}</h3>
+                            <p style="font-size: 13px; color: #ccc; margin-bottom: 10px;">Expira em: ${acesso.data_expiracao}</p>
+                            <a href="${acesso.link_grupo}" target="_blank" style="display: block; text-align: center; background: #18d26e; color: #000; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">Entrar no Grupo VIP</a>
+                        </div>
+                    `;
+                });
+                conteudo.innerHTML = htmlAcessos;
+            } else {
+                conteudo.innerHTML = `
+                    <p style="text-align: center; color: #aaa; font-size: 14px; padding: 10px;">Nenhuma assinatura ativa encontrada para o seu usuário.</p>
+                `;
+            }
+        } else {
+            statusText.style.display = 'none';
+            conteudo.style.display = 'flex';
+            conteudo.innerHTML = `<p style="text-align: center; color: #ff4d4d; font-size: 14px;">Erro ao buscar acessos. Tente novamente mais tarde.</p>`;
+        }
+    } catch (e) {
+        console.error(e);
+        statusText.style.display = 'none';
+        conteudo.style.display = 'flex';
+        conteudo.innerHTML = `<p style="text-align: center; color: #ff4d4d; font-size: 14px;">Falha de conexão com o servidor.</p>`;
+    }
+}
+
+function fecharMeusAcessos() {
+    const modal = document.getElementById('modal-acessos');
+    if (modal) modal.style.display = 'none';
 }
