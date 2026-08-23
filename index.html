@@ -1,4 +1,4 @@
-      <!DOCTYPE html> 
+<!DOCTYPE html> 
 <html lang="pt-BR">   
 
 <head>
@@ -16,8 +16,14 @@
             <h1>TV<span>Séries</span></h1>
             <p class="sub">Os melhores minidramas dublados</p>
         </div>
-        <div class="search">
-            <input type="text" id="pesquisa" placeholder="Pesquisar minidramas...">
+        <!-- CAMPO DE PESQUISA E BOTÃO MEUS ACESSOS LADO A LADO -->
+        <div class="header-top" style="display: flex; gap: 10px; align-items: center;">
+            <div class="search" style="flex: 1;">
+                <input type="text" id="pesquisa" placeholder="Pesquisar minidramas...">
+            </div>
+            <button class="btn-meus-acessos" onclick="abrirMeusAcessos()" style="background: #18d26e; color: #000; border: none; padding: 0 16px; height: 52px; border-radius: 30px; font-weight: bold; cursor: pointer; white-space: nowrap; font-size: 14px;">
+                🔑 Meus Acessos
+            </button>
         </div>
     </header>
 
@@ -81,8 +87,14 @@
         <p>Todos os direitos reservados.</p>
     </footer>
 
+    <script>
+        // Função temporária para o botão Meus Acessos
+        function abrirMeusAcessos() {
+            alert("Consultando seus acessos ativos...");
+            // Em breve, vamos integrar aqui a busca na sua planilha/banco via Telegram ID
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 
 </html>
-          
