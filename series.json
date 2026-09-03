@@ -234,8 +234,8 @@
   },
   {
     "nome": "Me Destruíram Agora Imploram",
-    "categoria": "lançamentos",
-    "tag": "LEGENDADO",
+    "categoria": "dublados",
+    "tag": "DUBLADO",
     "preco": 5.00,
     "imagem": "capa30.jpg",
     "chatId": "-1004317461283"
@@ -271,6 +271,14 @@
     "preco": 5.00,
     "imagem": "capa34.jpg",
     "chatId": "-1004396741247"
+  },
+  {
+    "nome": "O Rei Sem Alcance",
+    "categoria": "dublados",
+    "tag": "NOVO",
+    "preco": 5.00,
+    "imagem": "capa35.jpg",
+    "chatId": "-1004458630741"
   }
     
     
